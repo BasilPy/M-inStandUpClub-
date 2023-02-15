@@ -3,7 +3,7 @@ class MultiLangText:
     ru = None
     kz = None
 
-    def __init__(self, eng, ru, kz):
+    def __init__(self, eng: str, ru: str, kz: str):
         self.eng = eng
         self.ru = ru
         self.kz = kz
@@ -30,14 +30,16 @@ class MenuItem:
 
 
 class MenuCategory:
-    category_name: str = None
+    name: MultiLangText = None
     instruction: MultiLangText = None
     category_items: list[MenuItem] = None
+    item_id : str = None
 
-    def __init__(self, category_name: str, instruction: MultiLangText, category_items: list[MenuItem]):
-        self.category_name = category_name
+    def __init__(self, name: MultiLangText, instruction: MultiLangText, category_items: list[MenuItem], item_id: str):
+        self.name = name
         self.instruction = instruction
         self.category_items = category_items
+        self.item_id = item_id
 
 
 class Menu:
@@ -45,4 +47,5 @@ class Menu:
 
     def __init__(self, categories: list[MenuCategory]):
         self.categories = categories
+
 

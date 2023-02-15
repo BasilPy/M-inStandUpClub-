@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from menu.menu import menu
-from menu.models import MenuItem, MultiLangText
+from menu.main_menu import menu
+from menu.models import MenuItem, MultiLangText, MenuCategory
 
 
 def _create_button(menu_item: MenuItem, lang) -> InlineKeyboardButton:
@@ -10,13 +10,13 @@ def _create_button(menu_item: MenuItem, lang) -> InlineKeyboardButton:
     return button
 
 
-def get_exact_category(category_name):
+def get_exact_category(category_name) -> MenuItem:
     for category in menu.categories:
-        if category_name == category.category_name:
+        if category_name == category.name:
             return category
 
 
-def get_category_markup(category, lang) -> InlineKeyboardMarkup:
+def get_category_items_markup(category: MenuCategory, lang: str) -> InlineKeyboardMarkup:
     category_items = get_exact_category(category).category_items
     buttons = [
         _create_button(menu_item=category_item, lang=lang) for category_item in category_items
@@ -26,3 +26,12 @@ def get_category_markup(category, lang) -> InlineKeyboardMarkup:
         markup.row(button)
     return markup
 
+
+def get_categories_markup(lang: str) -> InlineKeyboardMarkup:
+    buttons = [
+        _create_button(menu_item=category, lang=lang) for category in menu.categories
+    ]
+    markup = InlineKeyboardMarkup()
+    for button in buttons:
+        markup.row(button)
+    return markup
