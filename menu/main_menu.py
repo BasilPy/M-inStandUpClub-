@@ -13,7 +13,7 @@ menu = Menu(
             name=MultiLangText(
                 eng='Tinctures',
                 ru='Настойки',
-                kz='Настойки_kz'
+                kz='Тұндырмалар'
             ),
             instruction=MultiLangText(
                 eng='Choose a tincture 🍋🍍🍇 50мл:',
@@ -29,7 +29,7 @@ menu = Menu(
             name=MultiLangText(
                 eng='Bear',
                 ru='Пиво',
-                kz='Пиво_кз'
+                kz='Сыра'
             ),
             instruction=MultiLangText(
                 eng='Choose a bear 🍺 500мл:',

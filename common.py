@@ -10,9 +10,9 @@ def _create_button(menu_item: MenuItem, lang) -> InlineKeyboardButton:
     return button
 
 
-def get_exact_category(category_name) -> MenuItem:
+def get_exact_category(category_name) -> MenuCategory:
     for category in menu.categories:
-        if category_name == category.name:
+        if category_name == category.item_id:
             return category
 
 
