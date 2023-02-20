@@ -8,6 +8,11 @@ from menu.non_alco_drinks import all_non_alco
 from menu.models import Menu, MenuCategory, MultiLangText
 
 menu = Menu(
+    title_categories=MultiLangText(
+            eng='Chose category:',
+            ru='Выберите категорию:',
+            kz='Санат таңдаңыз:'
+    ),
     categories=[
         MenuCategory(
             name=MultiLangText(
